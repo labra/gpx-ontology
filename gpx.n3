@@ -2,6 +2,8 @@
 #
 # In general, so not put comments as n3 comments, put them in the ontology so they
 # are available to inform developers using the ontology.
+#
+# 
 
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix s: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -24,6 +26,14 @@
 GPX uses the following conventions: all coordinates are relative to the WGS84 datum.  All measurements are in metric units.""",
               """This RDF ontology is deemed to contain as RDF terms all
  the terms which are standardized as XML elements in the GPX specification.
+
+revision 1.1
+date: 2020/03/12 10:00:00;  author: labra;  state: Exp;
+Added terms: gpx:version gpx:creator gpx:lat gpx:lon gpx:id gpx:domain gpx:href gpx:author gpx:minlat gpx:minlon gpx:maxlat gpx:maxlon
+
+revision 1.0
+date: 2020/03/11 10:00:00;  author: timbl;  state: Exp;
+
  """.
 
   gpx:ageofdgpsdata     a rdf:Property;
@@ -34,7 +44,7 @@ GPX uses the following conventions: all coordinates are relative to the WGS84 da
   gpx:author     a rdf:Property;
        :label "author"@en;
        :comment """The person or organization who created the GPX file.""";
-       :range gpx:PersonType .
+       :range gpx:PersonType .  
 
   gpx:bounds     a rdf:Property;
        :label "bounds"@en;
@@ -271,6 +281,60 @@ GPX uses the following conventions: all coordinates are relative to the WGS84 da
        :comment """Year of copyright.""";
        :range xsd:gYear .
 
+  gpx:version     a rdf:Property;
+   :label "version"@en;
+   :comment """Version of GPX. Fixed = 1.1""";
+   :range xsd:string .
+
+  gpx:creator     a rdf:Property;
+   :label "creator"@en;
+   :comment """Creator""";
+   :range xsd:string .
+
+  gpx:id     a rdf:Property;
+   :label "id"@en;
+   :comment """email id""";
+   :range xsd:string .
+
+  gpx:domain     a rdf:Property;
+   :label "domain"@en;
+   :comment """email domain""";
+   :range xsd:string .
+
+  gpx:href     a rdf:Property;
+   :label "href"@en;
+   :comment """href""";
+   :range xsd:anyURI .
+
+  gpx:lat     a rdf:Property;
+   :label "lattitude"@en;
+   :comment """The latitude of the point. Decimal degrees, WGS84 datum. -90.0 <= value <= 90.0""";
+   :range xsd:decimal .
+
+  gpx:lon     a rdf:Property;
+   :label "longitude"@en;
+   :comment """The longitude of the point. Decimal degrees, WGS84 datum. -180.0 <= value < 180.0""";
+   :range xsd:decimal .
+
+  gpx:minlat     a rdf:Property;
+   :label "minlat"@en;
+   :comment """The min latitude of the point. Decimal degrees, WGS84 datum. -90.0 <= value <= 90.0""";
+   :range xsd:decimal .
+
+  gpx:maxlat     a rdf:Property;
+   :label "maxlat"@en;
+   :comment """The max latitude of the point. Decimal degrees, WGS84 datum. -90.0 <= value <= 90.0""";
+   :range xsd:decimal .
+
+  gpx:minlon     a rdf:Property;
+   :label "minlon"@en;
+   :comment """The min longitude of the point. Decimal degrees, WGS84 datum. -90.0 <= value <= 90.0""";
+   :range xsd:decimal .
+
+  gpx:maxlon     a rdf:Property;
+   :label "maxlon"@en;
+   :comment """The max longitude of the point. Decimal degrees, WGS84 datum. -90.0 <= value <= 90.0""";
+   :range xsd:decimal .
 
   # ENDS
   
